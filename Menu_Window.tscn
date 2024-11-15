@@ -1,0 +1,287 @@
+[gd_scene load_steps=17 format=3 uid="uid://0q1up7lmljil"]
+
+[ext_resource type="Texture2D" uid="uid://l2xa0dx7fh2r" path="res://textures/terrain/background_day.png" id="1_axv6d"]
+[ext_resource type="Script" path="res://menu_window.gd" id="1_qp81n"]
+[ext_resource type="Texture2D" uid="uid://cchh4khajcxpc" path="res://textures/terrain/roadway.png" id="2_ufy4h"]
+[ext_resource type="Texture2D" uid="uid://b8i4cedo6v1np" path="res://textures/stuff/tile_0000.png" id="4_1dkg2"]
+[ext_resource type="FontFile" uid="uid://bmhhwv6ty6eq7" path="res://resources/Kenney Pixel.ttf" id="5_tnkof"]
+[ext_resource type="Texture2D" uid="uid://cgeej1vappds4" path="res://textures/stuff/tile_0056.png" id="6_nly35"]
+[ext_resource type="Texture2D" uid="uid://cp56avivsixk5" path="res://textures/stuff/tile_0058.png" id="7_4t7r8"]
+[ext_resource type="Texture2D" uid="uid://drhlt133jjnlo" path="res://textures/stuff/tile_0057.png" id="8_5e18g"]
+[ext_resource type="Texture2D" uid="uid://6510r36tpq84" path="res://textures/stuff/tile_0015.png" id="9_or5b6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4icgj"]
+font = ExtResource("5_tnkof")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_4w8c2"]
+font = ExtResource("5_tnkof")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpoat"]
+bg_color = Color(0.6, 0.6, 0.6, 0.705882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c5y0"]
+bg_color = Color(0.6, 0.6, 0.6, 0.176471)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s8ike"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c2x6a"]
+font = ExtResource("5_tnkof")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_kxglr"]
+font = ExtResource("5_tnkof")
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+
+[node name="MenuWindow" type="Node2D"]
+script = ExtResource("1_qp81n")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = 500
+position = Vector2(469, 324)
+texture = ExtResource("1_axv6d")
+
+[node name="World" type="Node2D" parent="."]
+position = Vector2(102, 23)
+
+[node name="Line2D" type="Line2D" parent="World"]
+z_index = 50
+points = PackedVector2Array(0, 0, 400, 0, 400, 600, 0, 600, 0, 0, 400, 0)
+default_color = Color(0, 0.0823334, 0.26, 1)
+
+[node name="RoadWay" type="Sprite2D" parent="World"]
+z_index = -5
+texture_repeat = 2
+position = Vector2(196, 300)
+texture = ExtResource("2_ufy4h")
+region_enabled = true
+region_rect = Rect2(0, 0, 411, 600)
+
+[node name="UIBox" type="NinePatchRect" parent="."]
+z_index = 2000
+offset_left = 280.0
+offset_top = 79.0
+offset_right = 524.0
+offset_bottom = 418.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_1dkg2")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Title" type="Control" parent="UIBox"]
+anchors_preset = 0
+offset_top = -16.0
+offset_right = 241.0
+offset_bottom = 24.0
+
+[node name="Label" type="Label" parent="UIBox/Title"]
+z_index = 1
+layout_mode = 0
+offset_left = 44.0
+offset_top = -13.0
+offset_right = 206.0
+offset_bottom = 11.0
+text = "Bug Splat Game"
+label_settings = SubResource("LabelSettings_4icgj")
+horizontal_alignment = 1
+
+[node name="L" type="TextureRect" parent="UIBox/Title"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -28.0
+offset_right = 18.0
+offset_bottom = 12.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_nly35")
+
+[node name="R" type="TextureRect" parent="UIBox/Title"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = -28.0
+offset_right = 246.0
+offset_bottom = 12.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_4t7r8")
+
+[node name="Mid" type="TextureRect" parent="UIBox/Title"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = -29.0
+offset_right = 150.0
+offset_bottom = 11.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_5e18g")
+expand_mode = 3
+
+[node name="Controls" type="Label" parent="UIBox"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 221.0
+offset_right = 232.0
+offset_bottom = 321.0
+text = "Controls:
+WASD/Arrows : Move around
+shift: Slow move + show hitbox.
+
+Get points! Avoid buses!"
+label_settings = SubResource("LabelSettings_4w8c2")
+autowrap_mode = 3
+text_overrun_behavior = 2
+
+[node name="button_1" type="NinePatchRect" parent="UIBox"]
+z_index = 10
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -97.0
+offset_top = 42.0
+offset_right = 94.0
+offset_bottom = 70.0
+grow_horizontal = 2
+texture = ExtResource("9_or5b6")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Button" type="Button" parent="UIBox/button_1"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 191.0
+offset_bottom = 27.0
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_rpoat")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0c5y0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s8ike")
+
+[node name="Label" type="Label" parent="UIBox/button_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -9.5
+offset_right = 90.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Endless Mode (1 Life)"
+label_settings = SubResource("LabelSettings_c2x6a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ver" type="Label" parent="UIBox"]
+layout_mode = 0
+offset_left = 92.3333
+offset_top = 316.333
+offset_right = 238.333
+offset_bottom = 333.333
+text = "v1.1.0"
+label_settings = SubResource("LabelSettings_kxglr")
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 3
+text_overrun_behavior = 2
+
+[node name="button_about" type="NinePatchRect" parent="UIBox"]
+z_index = 10
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -97.0
+offset_top = 192.0
+offset_right = 94.0
+offset_bottom = 220.0
+grow_horizontal = 2
+texture = ExtResource("9_or5b6")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Button" type="Button" parent="UIBox/button_about"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 191.0
+offset_bottom = 27.0
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_rpoat")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0c5y0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s8ike")
+
+[node name="Label" type="Label" parent="UIBox/button_about"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -9.5
+offset_right = 90.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "About"
+label_settings = SubResource("LabelSettings_c2x6a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button_2" type="NinePatchRect" parent="UIBox"]
+z_index = 10
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -97.0
+offset_top = 70.0
+offset_right = 94.0
+offset_bottom = 98.0
+grow_horizontal = 2
+texture = ExtResource("9_or5b6")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Button" type="Button" parent="UIBox/button_2"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 191.0
+offset_bottom = 27.0
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_rpoat")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0c5y0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s8ike")
+
+[node name="Label" type="Label" parent="UIBox/button_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -9.5
+offset_right = 90.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Endless Mode (3 lives)"
+label_settings = SubResource("LabelSettings_c2x6a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="UIBox/button_1/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UIBox/button_about/Button" to="." method="_on_button_about_pressed"]
+[connection signal="pressed" from="UIBox/button_2/Button" to="." method="_on_button_2_pressed"]

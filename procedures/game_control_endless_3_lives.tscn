@@ -1,0 +1,242 @@
+[gd_scene load_steps=17 format=3 uid="uid://jejrhlsen5li"]
+
+[ext_resource type="Script" path="res://procedures/game_control_endless_3_lives.gd" id="1_g8dh7"]
+[ext_resource type="Texture2D" uid="uid://b8i4cedo6v1np" path="res://textures/stuff/tile_0000.png" id="2_c0nxb"]
+[ext_resource type="FontFile" uid="uid://bmhhwv6ty6eq7" path="res://resources/Kenney Pixel.ttf" id="3_yvtfk"]
+[ext_resource type="Texture2D" uid="uid://cgeej1vappds4" path="res://textures/stuff/tile_0056.png" id="4_8pyja"]
+[ext_resource type="Texture2D" uid="uid://cp56avivsixk5" path="res://textures/stuff/tile_0058.png" id="5_sa0q5"]
+[ext_resource type="Texture2D" uid="uid://drhlt133jjnlo" path="res://textures/stuff/tile_0057.png" id="6_jhqfo"]
+[ext_resource type="Texture2D" uid="uid://bkky3qb42vg7o" path="res://textures/stuff/tile_0003.png" id="7_j8msw"]
+[ext_resource type="Texture2D" uid="uid://du21fmhqu4ckl" path="res://textures/stuff/tile_0139.png" id="8_x46hv"]
+[ext_resource type="Texture2D" uid="uid://bc1scb30gxmtx" path="res://textures/stuff/tile_0149.png" id="9_dgxjf"]
+[ext_resource type="Texture2D" uid="uid://bwcxmp5on8c2t" path="res://textures/stuff/tile_0148.png" id="10_5r75o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_na106"]
+font = ExtResource("3_yvtfk")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l2lri"]
+font = ExtResource("3_yvtfk")
+font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qm8t5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mqkon"]
+texture = ExtResource("7_j8msw")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 3, 16, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ienvb"]
+font = ExtResource("3_yvtfk")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvoi0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_dgxjf")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_5r75o")
+}],
+"loop": true,
+"name": &"Live",
+"speed": 0.0
+}]
+
+[node name="GameControlEndless_3_lives" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_g8dh7")
+
+[node name="Enemy_Spawn_Timer" type="Timer" parent="."]
+process_mode = 1
+one_shot = true
+
+[node name="Point_Timer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 600.0
+autostart = true
+
+[node name="UIBox" type="NinePatchRect" parent="."]
+offset_left = 598.0
+offset_top = 122.0
+offset_right = 842.0
+offset_bottom = 473.0
+texture = ExtResource("2_c0nxb")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Points_Label_num" type="Label" parent="UIBox"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 34.0
+offset_right = 202.0
+offset_bottom = 70.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_na106")
+vertical_alignment = 1
+
+[node name="Points_Label" type="Label" parent="UIBox"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 34.0
+offset_right = 118.0
+offset_bottom = 70.0
+text = "Points:"
+label_settings = SubResource("LabelSettings_na106")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Title" type="Control" parent="UIBox"]
+anchors_preset = 0
+offset_top = -16.0
+offset_right = 241.0
+offset_bottom = 24.0
+
+[node name="Label" type="Label" parent="UIBox/Title"]
+z_index = 1
+layout_mode = 0
+offset_left = 44.0
+offset_top = -13.0
+offset_right = 206.0
+offset_bottom = 11.0
+text = "ENDLESS MODE"
+label_settings = SubResource("LabelSettings_l2lri")
+horizontal_alignment = 1
+
+[node name="L" type="TextureRect" parent="UIBox/Title"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -28.0
+offset_right = 18.0
+offset_bottom = 12.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_8pyja")
+
+[node name="R" type="TextureRect" parent="UIBox/Title"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = -28.0
+offset_right = 246.0
+offset_bottom = 12.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_sa0q5")
+
+[node name="Mid" type="TextureRect" parent="UIBox/Title"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = -29.0
+offset_right = 150.0
+offset_bottom = 11.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_jhqfo")
+expand_mode = 3
+
+[node name="ProgressBar" type="Control" parent="UIBox"]
+anchors_preset = 0
+offset_left = 48.0
+offset_top = 73.0
+offset_right = 200.0
+offset_bottom = 95.0
+
+[node name="TextureProgressBar" type="ProgressBar" parent="UIBox/ProgressBar"]
+z_index = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 75.0
+offset_bottom = 11.0
+scale = Vector2(2, 2)
+theme_override_styles/background = SubResource("StyleBoxEmpty_qm8t5")
+theme_override_styles/fill = SubResource("StyleBoxTexture_mqkon")
+step = 1.0
+value = 50.0
+rounded = true
+show_percentage = false
+
+[node name="L" type="NinePatchRect" parent="UIBox/ProgressBar"]
+layout_mode = 0
+offset_left = 75.0
+offset_right = 86.0
+offset_bottom = 38.0
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("8_x46hv")
+region_rect = Rect2(4, 0, 8, 13)
+patch_margin_left = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="R" type="NinePatchRect" parent="UIBox/ProgressBar"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 22.0
+offset_right = 86.0
+offset_bottom = 60.0
+rotation = 4.71239
+scale = Vector2(2, 2)
+texture = ExtResource("8_x46hv")
+region_rect = Rect2(4, 0, 8, 13)
+patch_margin_left = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="Controls" type="Label" parent="UIBox"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 224.0
+offset_right = 227.0
+offset_bottom = 324.0
+text = "Controls:
+WASD/Arrows : Move around
+shift: Slow move + show hitbox.
+
+Get points! Avoid buses!"
+label_settings = SubResource("LabelSettings_ienvb")
+autowrap_mode = 3
+text_overrun_behavior = 2
+
+[node name="Lives_Lavel" type="Label" parent="UIBox"]
+offset_left = 19.0
+offset_top = 94.0
+offset_right = 118.0
+offset_bottom = 130.0
+text = "Lives:"
+label_settings = SubResource("LabelSettings_na106")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Life_1" type="AnimatedSprite2D" parent="UIBox"]
+position = Vector2(60, 134)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_uvoi0")
+animation = &"Live"
+
+[node name="Life_2" type="AnimatedSprite2D" parent="UIBox"]
+position = Vector2(75, 134)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_uvoi0")
+animation = &"Live"
+
+[node name="Life_3" type="AnimatedSprite2D" parent="UIBox"]
+position = Vector2(90, 134)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_uvoi0")
+animation = &"Live"
+
+[connection signal="timeout" from="Enemy_Spawn_Timer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="Point_Timer" to="." method="_on_point_timer_timeout"]

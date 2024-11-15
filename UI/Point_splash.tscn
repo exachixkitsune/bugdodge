@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b084o41ien8pk"]
+
+[ext_resource type="Texture2D" uid="uid://bmbrcm4yq81t5" path="res://textures/stuff/point_text.png" id="1_42ki5"]
+[ext_resource type="Script" path="res://UI/point_splash.gd" id="1_aq5i1"]
+
+[node name="PointSplash" type="Node2D"]
+script = ExtResource("1_aq5i1")
+
+[node name="PointText" type="Sprite2D" parent="."]
+texture = ExtResource("1_42ki5")

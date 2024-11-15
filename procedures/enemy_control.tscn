@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw0unuqwvafb2"]
+
+[ext_resource type="Script" path="res://procedures/enemy_control.gd" id="1_yctn0"]
+[ext_resource type="Texture2D" uid="uid://ds2nperbvghcf" path="res://textures/stuff/UIpackSheet_transparent.png" id="2_d3u57"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g7py"]
+atlas = ExtResource("2_d3u57")
+region = Rect2(360, 450, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao0ou"]
+atlas = ExtResource("2_d3u57")
+region = Rect2(360, 450, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ap1qe"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_7g7py")
+}, {
+"duration": 2.0,
+"texture": null
+}],
+"loop": true,
+"name": &"fast",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_ao0ou")
+}, {
+"duration": 2.0,
+"texture": null
+}],
+"loop": true,
+"name": &"slow",
+"speed": 5.0
+}]
+
+[node name="enemy_control" type="Node2D"]
+script = ExtResource("1_yctn0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="WarningArrow" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 32)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ap1qe")
+animation = &"slow"
+autoplay = "slow"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

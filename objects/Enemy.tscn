@@ -1,0 +1,122 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5pqv1yxmdhoy"]
+
+[ext_resource type="Script" path="res://objects/enemy.gd" id="1_qlf10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmlll"]
+size = Vector2(90, 210)
+
+[node name="Enemy" type="Area2D"]
+light_mask = 4
+visibility_layer = 4
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_qlf10")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.815686, 0.698039, 0.4, 1)
+polygon = PackedVector2Array(-45, -105, 45, -105, 45, 105, -45, 105)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_bmlll")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
+rect = Rect2(-45, -105, 90, 210)
+
+[node name="Windows" type="Node2D" parent="."]
+
+[node name="Polygon2D2" type="Polygon2D" parent="Windows"]
+color = Color(0.369533, 0.368, 0.46, 1)
+polygon = PackedVector2Array(-37, 84, -43, 102, 43, 102, 37, 84)
+
+[node name="Polygon2D9" type="Polygon2D" parent="Windows"]
+color = Color(0.368627, 0.368627, 0.458824, 1)
+polygon = PackedVector2Array(38, 79, 43, 95, 43, 40, 38, 39)
+
+[node name="Polygon2D10" type="Polygon2D" parent="Windows"]
+color = Color(0.368627, 0.368627, 0.458824, 1)
+polygon = PackedVector2Array(-38, 79, -43, 95, -43, 40, -38, 39)
+
+[node name="Polygon2D11" type="Polygon2D" parent="Windows"]
+color = Color(0.368627, 0.368627, 0.458824, 1)
+polygon = PackedVector2Array(38, 1, 43, 1, 43, 37, 38, 36)
+
+[node name="Polygon2D12" type="Polygon2D" parent="Windows"]
+color = Color(0.368627, 0.368627, 0.458824, 1)
+polygon = PackedVector2Array(-38, 1, -43, 1, -43, 37, -38, 36)
+
+[node name="Polygon2D13" type="Polygon2D" parent="Windows"]
+color = Color(0.368627, 0.368627, 0.458824, 1)
+polygon = PackedVector2Array(38, -2, 43, -2, 43, -29, 38, -29)
+
+[node name="Polygon2D14" type="Polygon2D" parent="Windows"]
+position = Vector2(0, -29)
+color = Color(0.368627, 0.368627, 0.458824, 1)
+polygon = PackedVector2Array(38, -2, 43, -2, 43, -29, 38, -29)
+
+[node name="Polygon2D15" type="Polygon2D" parent="Windows"]
+position = Vector2(0, -58)
+color = Color(0.368627, 0.368627, 0.458824, 1)
+polygon = PackedVector2Array(38, -2, 43, -2, 43, -35, 38, -35)
+
+[node name="Polygon2D16" type="Polygon2D" parent="Windows"]
+position = Vector2(-81, 0)
+color = Color(0.368627, 0.368627, 0.458824, 1)
+polygon = PackedVector2Array(38, -2, 43, -2, 43, -29, 38, -29)
+
+[node name="Polygon2D17" type="Polygon2D" parent="Windows"]
+position = Vector2(-81, -29)
+color = Color(0.368627, 0.368627, 0.458824, 1)
+polygon = PackedVector2Array(38, -2, 43, -2, 43, -29, 38, -29)
+
+[node name="Polygon2D18" type="Polygon2D" parent="Windows"]
+position = Vector2(-81, -58)
+color = Color(0.368627, 0.368627, 0.458824, 1)
+polygon = PackedVector2Array(38, -2, 43, -2, 43, -35, 38, -35)
+
+[node name="Wheels" type="Node2D" parent="."]
+
+[node name="Polygon2D3" type="Polygon2D" parent="Wheels"]
+z_index = -1
+color = Color(0.15, 0.138, 0.138, 1)
+polygon = PackedVector2Array(-48, 72, -48, 100, -42, 100, -42, 72)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Wheels"]
+z_index = -1
+position = Vector2(90, 0)
+color = Color(0.15, 0.138, 0.138, 1)
+polygon = PackedVector2Array(-48, 72, -48, 100, -42, 100, -42, 72)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Wheels"]
+z_index = -1
+position = Vector2(0, -174)
+color = Color(0.15, 0.138, 0.138, 1)
+polygon = PackedVector2Array(-48, 72, -48, 100, -42, 100, -42, 72)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Wheels"]
+z_index = -1
+position = Vector2(90, -174)
+color = Color(0.15, 0.138, 0.138, 1)
+polygon = PackedVector2Array(-48, 72, -48, 100, -42, 100, -42, 72)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Wheels"]
+z_index = -1
+position = Vector2(0, -144)
+color = Color(0.15, 0.138, 0.138, 1)
+polygon = PackedVector2Array(-48, 72, -48, 100, -42, 100, -42, 72)
+
+[node name="Polygon2D8" type="Polygon2D" parent="Wheels"]
+z_index = -1
+position = Vector2(90, -144)
+color = Color(0.15, 0.138, 0.138, 1)
+polygon = PackedVector2Array(-48, 72, -48, 100, -42, 100, -42, 72)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-33, -101, -33, 78, 33, 78, 33, -101)
+width = 3.0
+default_color = Color(0.2728, 0.32296, 0.44, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

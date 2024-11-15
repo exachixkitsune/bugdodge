@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://bju7oikaxaegq"]
+
+[ext_resource type="Texture2D" uid="uid://b8i4cedo6v1np" path="res://textures/stuff/tile_0000.png" id="1_1gdc5"]
+[ext_resource type="Script" path="res://UI/gameover.gd" id="1_23w5m"]
+[ext_resource type="FontFile" uid="uid://bmhhwv6ty6eq7" path="res://resources/Kenney Pixel.ttf" id="2_csoqb"]
+[ext_resource type="Texture2D" uid="uid://cgeej1vappds4" path="res://textures/stuff/tile_0056.png" id="3_rrnxi"]
+[ext_resource type="Texture2D" uid="uid://cp56avivsixk5" path="res://textures/stuff/tile_0058.png" id="4_gg7dc"]
+[ext_resource type="Texture2D" uid="uid://drhlt133jjnlo" path="res://textures/stuff/tile_0057.png" id="5_mwex0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v5xvd"]
+font = ExtResource("2_csoqb")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_io4og"]
+font = ExtResource("2_csoqb")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="gameover" type="Node2D"]
+script = ExtResource("1_23w5m")
+
+[node name="UIBox" type="NinePatchRect" parent="."]
+offset_left = -122.0
+offset_top = -36.0
+offset_right = 122.0
+offset_bottom = 37.0
+texture = ExtResource("1_1gdc5")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Control" parent="UIBox"]
+anchors_preset = 0
+offset_top = -16.0
+offset_right = 241.0
+offset_bottom = 24.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="UIBox/Title"]
+z_index = 1
+layout_mode = 0
+offset_left = 44.0
+offset_top = -13.0
+offset_right = 206.0
+offset_bottom = 11.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_v5xvd")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="L" type="TextureRect" parent="UIBox/Title"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -28.0
+offset_right = 18.0
+offset_bottom = 12.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_rrnxi")
+metadata/_edit_use_anchors_ = true
+
+[node name="R" type="TextureRect" parent="UIBox/Title"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = -28.0
+offset_right = 246.0
+offset_bottom = 12.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_gg7dc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Mid" type="TextureRect" parent="UIBox/Title"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = -29.0
+offset_right = 150.0
+offset_bottom = 11.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_mwex0")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="maintext" type="Label" parent="UIBox"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 221.0
+offset_bottom = 38.0
+text = "You scored (X) points."
+label_settings = SubResource("LabelSettings_io4og")
+horizontal_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="endtext" type="Label" parent="UIBox"]
+offset_left = 9.0
+offset_top = 39.0
+offset_right = 235.0
+offset_bottom = 59.0
+text = "Press spacebar to continue"
+label_settings = SubResource("LabelSettings_io4og")
+horizontal_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true

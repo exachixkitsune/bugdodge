@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bawlnba4ax4jn"]
+
+[ext_resource type="Script" path="res://main_window.gd" id="1_gek23"]
+[ext_resource type="PackedScene" uid="uid://dwydyfad1x6wp" path="res://world.tscn" id="1_thj8s"]
+[ext_resource type="Texture2D" uid="uid://l2xa0dx7fh2r" path="res://textures/terrain/background_day.png" id="2_jg6lw"]
+
+[node name="MainWindow" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_gek23")
+
+[node name="World" parent="." instance=ExtResource("1_thj8s")]
+z_index = 1
+position = Vector2(102, 23)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = 500
+position = Vector2(469, 324)
+texture = ExtResource("2_jg6lw")
